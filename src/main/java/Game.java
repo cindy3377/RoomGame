@@ -1,26 +1,11 @@
-enum GameType {
-    HORROR, RELAXED;
-}
-abstract class Game {
-    protected GameType gameType;
+public class Game {
+    public static void main(String[] args) {
+        Map cityMap = new CityMap(10, 5);
+        System.out.println("City Map:");
+        cityMap.display();
 
-    public Game(GameType gameType) {
-        this.gameType = gameType;
-    }
-
-    // Factory method to be implemented by subclasses
-    abstract Room makeRoom();
-
-    // Game logic that works with Room objects
-    public void play() {
-        System.out.println("Starting " + gameType + " game...");
-        Room room = makeRoom();
-        room.describe();
-
-        if (room.challenge()) {
-            System.out.println("You passed the challenge! You continue your adventure...");
-        } else {
-            System.out.println("You failed the challenge! Try again in another room...");
-        }
+        Map wildernessMap = new WildernessMap(10, 5);
+        System.out.println("\nWilderness Map:");
+        wildernessMap.display();
     }
 }
